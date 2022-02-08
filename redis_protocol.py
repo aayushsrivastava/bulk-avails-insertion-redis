@@ -3,8 +3,13 @@ def generate_redis_protocol(*cmd):
 
     if instruction == 'HSET':
         return generate_redis_protocol_HSET(*cmd)
+    elif instruction == 'SET':
+        return generate_redis_protocol_SET(*cmd)
 
     return ""
+
+def generate_redis_protocol_SET(*cmd):
+    return generate_redis_protocol_HSET(*cmd)
 
 def generate_redis_protocol_HSET(*cmd):
     proto = (f"*{len(cmd)}\r\n")
