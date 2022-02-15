@@ -1,7 +1,9 @@
 def generate_redis_protocol(*cmd):
     instruction = cmd[0]
 
-    if instruction == 'HSET':
+    if instruction == 'HMSET':
+        return generate_redis_protocol_HSET(*cmd)
+    elif instruction == 'HSET':
         return generate_redis_protocol_HSET(*cmd)
     elif instruction == 'SET':
         return generate_redis_protocol_SET(*cmd)
